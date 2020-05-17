@@ -30,7 +30,9 @@ public class ParkingService {
 	private static void processCommand(String command) {
 		String[] cmd = command.split(" ");
 		ParkingLotOperation operation = null;
-		Map extraParam = new HashMap();
+		
+		OperationParam operationParam = new OperationParam();
+		//Map operationParams = operationParams.getOperationParam();
 		
 		switch (ParkingCommand.valueOf(cmd[0].trim().toUpperCase())){
 		case CREATE_PARKING_LOT:{
@@ -41,13 +43,13 @@ public class ParkingService {
 		case PARK:{
 			Car car = new Car(cmd[1].trim(), Colour.valueOf(cmd[2].trim()));
 			operation = new ParkOperation();
-			extraParam.put("car", car);
+			operationParam.addParam(InputParamEnum.CAR, car);
 			
 			break;
 		}
 		case LEAVE:{
 			operation = new LeaveOperation();
-			extraParam.put("slotId", Integer.parseInt(cmd[1].trim()));
+			operationParam.addParam(InputParamEnum.SLOT_ID, Integer.parseInt(cmd[1].trim()));
 			
 			break;
 		}
@@ -57,19 +59,19 @@ public class ParkingService {
 		}
 		case REGISTRATION_NUMBERS_FOR_CARS_WITH_COLOUR:{
 			operation = new RegistrationNumbersForCarsWithColourOperation();
-			extraParam.put("colour", Colour.valueOf(cmd[1].trim()));
+			operationParam.addParam(InputParamEnum.COLOUR, Colour.valueOf(cmd[1].trim()));
 			
 			break;
 		}
 		case SLOT_NUMBERS_FOR_CARS_WITH_COLOUR:{
 			operation = new SlotNumbersForCarsWithColourOperation();
-			extraParam.put("colour", Colour.valueOf(cmd[1].trim()));
+			operationParam.addParam(InputParamEnum.COLOUR, Colour.valueOf(cmd[1].trim()));
 			
 			break;
 		}
 		case SLOT_NUMBER_FOR_REGISTRATION_NUMBER:{
 			operation = new SlotNumberForRegistrationNumberOperation();
-			extraParam.put("registrationNum", cmd[1].trim());
+			operationParam.addParam(InputParamEnum.REGISTRATION_NUMBER, cmd[1].trim());
 			
 			break;
 		}
@@ -79,7 +81,7 @@ public class ParkingService {
 		}
 		}
 		if(operation!=null) {
-			operation.execute(parkingSrevice, ParkingCommand.valueOf(cmd[0].trim()), extraParam);
+			operation.execute(parkingSrevice, ParkingCommand.valueOf(cmd[0].trim()), operationParam);
 		}
 	}
 

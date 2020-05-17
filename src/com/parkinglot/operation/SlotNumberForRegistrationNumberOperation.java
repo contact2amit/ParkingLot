@@ -3,6 +3,8 @@ package com.parkinglot.operation;
 import java.util.Map;
 
 import com.parkinglot.Colour;
+import com.parkinglot.InputParamEnum;
+import com.parkinglot.OperationParam;
 import com.parkinglot.ParkingCommand;
 import com.parkinglot.service.ParkingSystemService;
 import com.parkinglot.vo.ParkingSlot;
@@ -13,8 +15,8 @@ public class SlotNumberForRegistrationNumberOperation implements ParkingLotOpera
     // constructors
      
     @Override
-    public void execute(ParkingSystemService parkingSrevice, ParkingCommand cmd, Map extraParam) {
-    	String registrationNumber = (String)extraParam.get("registrationNum");
+    public void execute(ParkingSystemService parkingSrevice, ParkingCommand cmd, OperationParam operationParam) {
+    	String registrationNumber = (String)operationParam.getParam(InputParamEnum.REGISTRATION_NUMBER);
 
 		ParkingSlot slot = parkingSrevice.getParkingSlotByRegistration(registrationNumber);
 		if(slot==null) {

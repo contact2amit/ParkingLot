@@ -4,6 +4,8 @@ import java.util.List;
 import java.util.Map;
 
 import com.parkinglot.Colour;
+import com.parkinglot.InputParamEnum;
+import com.parkinglot.OperationParam;
 import com.parkinglot.ParkingCommand;
 import com.parkinglot.service.ParkingSystemService;
 import com.parkinglot.vo.Car;
@@ -15,9 +17,9 @@ public class SlotNumbersForCarsWithColourOperation implements ParkingLotOperatio
     // constructors
      
     @Override
-    public void execute(ParkingSystemService parkingSrevice, ParkingCommand cmd, Map extraParam) {
+    public void execute(ParkingSystemService parkingSrevice, ParkingCommand cmd, OperationParam operationParam) {
         
-    	Colour clr = (Colour)extraParam.get("colour");
+    	Colour clr = (Colour)operationParam.getParam(InputParamEnum.COLOUR);
 		
 
 		List<ParkingSlot> slots = parkingSrevice.getSlotByCarColor(clr);
