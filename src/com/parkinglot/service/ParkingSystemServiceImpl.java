@@ -46,7 +46,9 @@ public class ParkingSystemServiceImpl implements ParkingSystemService{
 	public ParkingSlot asignParking(Car car) {
 		
 		ParkingSlot slot = parkingLot.getAvailableSlot();
-		
+		if(slot==null) {
+			return slot;
+		}
 		
 		if(!carsByColorMap.containsKey(car.getColor())) {
 			List<Car> cars = new ArrayList<Car>();
@@ -77,7 +79,7 @@ public class ParkingSystemServiceImpl implements ParkingSystemService{
 		parkingSlotByRegistrationMap.remove(car.getRegistrationNumber());
 		slotByCarColorMap.get(car.getColor()).remove(slot);
 		parkingLot.freeSlot(slot);
-		
+		slot.setOccupied(false);
 		return true;
 	}
 

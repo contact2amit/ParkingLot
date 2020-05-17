@@ -18,7 +18,7 @@ public class ParkOperation implements ParkingLotOperation {
     	Car car = (Car)extraParam.get("car");
     	ParkingSlot slot = parkingSrevice.asignParking(car);
 		if(slot==null) {
-			System.out.println("Sorry, parking lot os full");
+			System.out.println("Sorry, parking lot is full");
 		}else {
 			System.out.println("Alocated Slot number: "+slot.getSlotNumber());
 		}

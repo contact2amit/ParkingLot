@@ -19,8 +19,11 @@ public class RegistrationNumbersForCarsWithColourOperation implements ParkingLot
     	Colour clr = (Colour)extraParam.get("colour");
 		
 		List<Car> cars = parkingSrevice.getCarsByColor(clr);
+
+		StringBuilder status = new StringBuilder();
 		for(Car car: cars) {
-			System.out.print(car.getRegistrationNumber()+", ");
+			status.append(car.getRegistrationNumber()).append(", ");
 		}
+		System.out.println(status.delete(status.length()-2, status.length()-1));
     }
 }

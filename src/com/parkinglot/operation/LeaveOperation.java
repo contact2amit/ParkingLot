@@ -18,9 +18,9 @@ public class LeaveOperation implements ParkingLotOperation {
     	ParkingSlot slot = parkingSrevice.getSlotById(slotId);
     	boolean isRemoved = parkingSrevice.vacateParkingSlot(slot);
 		if(isRemoved) {
-			System.out.println("Slot number "+ slotId +"is free");
+			System.out.println("Slot number "+ slotId +" is free");
 		}else {
-			System.out.println("Not fount");
+			System.out.println("Not found");
 		}
     }
 }

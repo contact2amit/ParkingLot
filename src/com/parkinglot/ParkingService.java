@@ -47,7 +47,7 @@ public class ParkingService {
 		}
 		case LEAVE:{
 			operation = new LeaveOperation();
-			extraParam.put("slotId", parkingSrevice.getSlotById(Integer.parseInt(cmd[1].trim())));
+			extraParam.put("slotId", Integer.parseInt(cmd[1].trim()));
 			
 			break;
 		}
