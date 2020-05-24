@@ -1,20 +1,32 @@
 package com.parkinglot.vo;
 
+import com.parkinglot.SlotType;
+
 public class ParkingSlot {
 	
-	int slotNumber;
+	String slotid;
 	boolean isOccupied;
+	SlotType type;
 	
-	public ParkingSlot(int slotNumber) {
-		this.slotNumber = slotNumber;
+
+
+	public ParkingSlot(String slotid, SlotType type) {
+		super();
+		this.slotid = slotid;
+		this.type = type;
+		this.isOccupied=false;
 	}
 
-	public int getSlotNumber() {
-		return slotNumber;
+
+
+	public String getSlotid() {
+		return slotid;
 	}
 
-	private void setSlotNumber(int slotNumber) {
-		this.slotNumber = slotNumber;
+
+
+	public void setSlotid(String slotid) {
+		this.slotid = slotid;
 	}
 
 	public boolean isOccupied() {
@@ -24,5 +36,14 @@ public class ParkingSlot {
 	public void setOccupied(boolean isOccupied) {
 		this.isOccupied = isOccupied;
 	}
+
+	public SlotType getType() {
+		return type;
+	}
+
+	public void setType(SlotType type) {
+		this.type = type;
+	}
+
 	
 }

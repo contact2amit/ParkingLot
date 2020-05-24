@@ -1,0 +1,110 @@
+
+#For admin
+Admin APIs{
+executeCommand: create or addLevel or removeLevel or addSlot, removeSlot
+Parameter{
+	“numberOfLevel”:
+	LevelId
+	SlotId
+}
+}
+
+User APIS{	
+executeCommand:  “Park” or “getCar”, “generateBill” ….
+Parameter:{
+	
+	“Car_reg_number”:
+	“”
+}
+}
+
+
+
+POST /api/admin/create/ 
+[
+   {
+      "level":"A",
+      "slot":
+         {
+            "B":"4",
+            "T":"2",
+            "C":"10"
+         }
+   },
+   {
+      "level":"B",
+      "slot":
+         {
+            "B":"4",
+            "T":"2",
+            "C":"10"
+         }
+   },
+   {
+      "level":"C",
+      "slot":
+         {
+            "B":"4",
+            "T":"2",
+            "C":"10"
+         }
+   }
+]
+
+POST /api/admin/add/level
+{
+      "level":"A",
+      "slot":
+         {
+            "B":"4",
+            "T":"2",
+            "C":"10"
+         }
+}
+   
+  
+POST /api/admin/add/slot
+{
+      "level":"A",
+      "slot":
+         {
+            "B":"4",
+            "T":"2",
+            "C":"10"
+         }
+}
+
+POST /api/admin/remove/slot/{slotId}
+
+POST /api/admin/remove/level/{levelId}
+
+
+
+USRE API
+
+POST /api/user/park/ 
+{
+   "registrationNo":"04-CA-28970",
+   "Color":"Green"
+}
+
+POST /api/user/unpark/{ticketId}
+
+
+
+#Administrative services 
+	
+GET api/carsByColour/?Colour="{colour}"
+
+GET api/slotByCar?registrationNo="{registrationNo}"
+
+GET api/slotByCarColour?Colour="{colour}"
+
+GET api/status/
+GET api/status/{levelId}
+
+
+
+
+
+	

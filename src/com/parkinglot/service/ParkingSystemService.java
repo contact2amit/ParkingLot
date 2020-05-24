@@ -12,6 +12,9 @@ public interface ParkingSystemService {
 	public ParkingSlot asignParking(Car car);
 	public boolean vacateParkingSlot(ParkingSlot id);
 	
+	void addLevel();
+	void displayAvailability();
+	void displayAvailability(int level);
 	
 	//Regulation
 	public List<Car> getCarsByColor(Colour clr);
